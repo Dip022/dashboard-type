@@ -1,0 +1,77 @@
+.sidebar {
+    position: fixed;
+    width: 256px;
+    min-height: calc(100vh - 48px);
+    border-radius: 30px;
+    background-color: #fff;
+    padding: 10px;
+    padding-right: 5px;
+    .logo {
+        display: block;
+        padding: 16px;
+        margin-bottom: 8px;
+    }
+    .sidebar-nav {
+        position: relative;
+        width: 100%;
+        height: calc(100vh - 136px);
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .top-nav {
+            ul {
+                padding: 0px;
+                .sidebar-nav-item {
+                    padding-right: 5px;
+                    a {
+                        font-size: 14px;
+                        font-family: Open Sans;
+                        line-height: 30px;
+                        font-weight: 600;
+                        text-decoration: none;
+                        color: #3c4858;
+                        padding: 8px 15px;
+                        border-radius: 10px;
+                        .icon {
+                            width: 40px;
+                        }
+                        .arrow {
+                            font-size: 10px;
+                            font-weight: 900;
+                        }
+                    }
+                    .sub-menu {
+                        margin-top: 10px;
+                        padding-left: 42px;
+                        li {
+                            a {
+                                i {
+                                    width: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .active-sub-menu {
+                    .nav-item {
+                        color: #fff;
+                        background-color: #7044f5;
+                        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14),
+                            0 7px 10px -5px rgba(156, 39, 176, 0.4);
+                    }
+                }
+            }
+        }
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #a8a9ac;
+            border-radius: 20px;
+        }
+    }
+}

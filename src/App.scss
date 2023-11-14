@@ -6,7 +6,7 @@
 
 body {
     padding: 24px;
-    background-color: #e8e7ee;
+    background-color: #e8e7ee !important;
     a {
         text-decoration: none;
     }
@@ -19,6 +19,4 @@ body {
         border: 0;
         background-color: transparent;
     }
-}
-.admin-wrapper {
 }

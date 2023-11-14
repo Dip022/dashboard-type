@@ -9,11 +9,6 @@ export const navItems = [
         },
     },
     {
-        title: true,
-        name: "UI elements",
-        class: "menu-title",
-    },
-    {
         name: "Components",
         path: "/",
         icon: "fa fa-puzzle-piece",
@@ -22,10 +17,6 @@ export const navItems = [
                 name: "Buttons",
                 path: "/components/buttons",
                 icon: "fa fa-puzzle-piece",
-                badge: {
-                    variant: "danger",
-                    text: "NEW",
-                },
             },
             {
                 name: "Badges",
@@ -41,10 +32,6 @@ export const navItems = [
                 name: "Social Buttons",
                 path: "/components/socials",
                 icon: "fa fa-share-square",
-                badge: {
-                    variant: "success",
-                    text: "NEW",
-                },
             },
             {
                 name: "Cards",
@@ -92,10 +79,6 @@ export const navItems = [
                 name: "Basic Form",
                 path: "/components/basic-form",
                 icon: "fa fa-pencil-square",
-                badge: {
-                    variant: "warning",
-                    text: "NEW",
-                },
             },
             {
                 name: "Advanced Form",
@@ -106,10 +89,6 @@ export const navItems = [
                 name: "Form Wizard",
                 path: "/components/wizard-form",
                 icon: "fa fa-pencil-square",
-                badge: {
-                    variant: "danger",
-                    text: "NEW",
-                },
             },
         ],
     },
@@ -122,10 +101,6 @@ export const navItems = [
         name: "Widgets",
         path: "/components/widgets",
         icon: "fa fa-calculator",
-        badge: {
-            variant: "info",
-            text: "60+",
-        },
     },
     {
         name: "Charts",
@@ -167,11 +142,6 @@ export const navItems = [
         ],
     },
     {
-        title: true,
-        name: "Extras",
-        class: "menu-title",
-    },
-    {
         name: "Pages",
         path: "/",
         icon: "fa fa-paperclip",
@@ -197,15 +167,5 @@ export const navItems = [
                 icon: "fa fa-paper-plane",
             },
         ],
-    },
-    {
-        name: "Docs",
-        url: "https://docs.vuejsadmin.com/docs/basix-admin-free-vuejs-admin-template/",
-        icon: "fa-solid fa-file-lines",
-    },
-    {
-        name: "Purchase",
-        url: "https://vuejsadmin.com",
-        icon: "fa fa-shopping-cart",
     },
 ];

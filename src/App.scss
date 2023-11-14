@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 24px;
+    background-color: #e8e7ee;
+    a {
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+    }
+    button,
+    input {
+        outline: none;
+        border: 0;
+        background-color: transparent;
+    }
+}
+.admin-wrapper {
+}

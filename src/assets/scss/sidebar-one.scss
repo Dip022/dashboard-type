@@ -1,21 +1,21 @@
 .sidebar {
     position: fixed;
-    width: 256px;
-    min-height: calc(100vh - 48px);
+    width: 56px;
+    height: calc(100vh - 48px);
     border-radius: 30px;
     background-color: #fff;
-    padding: 10px;
-    padding-right: 5px;
+    padding: 10px 5px;
+    padding-bottom: 16px;
     .logo {
         display: block;
-        padding: 16px;
-        margin-bottom: 8px;
+        padding: 16px 0;
+        margin-bottom: 6px;
+        text-align: center;
     }
     .sidebar-nav {
         position: relative;
         width: 100%;
-        height: calc(100vh - 136px);
-        overflow: auto;
+        height: calc(100vh - 142px);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -23,32 +23,48 @@
             ul {
                 padding: 0px;
                 .sidebar-nav-item {
-                    padding-right: 5px;
-                    a {
-                        font-size: 14px;
+                    .nav-item {
+                        display: block;
+                        font-size: 16px;
                         font-family: Open Sans;
                         line-height: 30px;
                         font-weight: 600;
                         text-decoration: none;
                         color: #3c4858;
-                        padding: 8px 15px;
+                        padding: 8px;
+                        height: 42px;
                         border-radius: 10px;
-                        .icon {
-                            width: 40px;
+                        user-select: none;
+                        .icon-wrapper {
+                            flex-direction: column;
+                            justify-content: center;
+                            height: 100%;
+                        }
+                        span {
+                            display: none;
                         }
                         .arrow {
+                            display: none;
                             font-size: 10px;
                             font-weight: 900;
                         }
                     }
                     .sub-menu {
-                        margin-top: 10px;
-                        padding-left: 42px;
+                        margin-top: 5px;
+                        padding-left: 35px;
+                        display: none;
                         li {
                             a {
+                                padding: 8px 0;
+                                color: #3c4858;
                                 i {
-                                    width: 20px;
+                                    width: 30px;
                                 }
+                            }
+                        }
+                        .sub-menu-active {
+                            a {
+                                color: #7044f5;
                             }
                         }
                     }
@@ -63,6 +79,31 @@
                 }
             }
         }
+        .bottom-nav {
+            ul {
+                li {
+                    a {
+                        font-size: 16px;
+                        font-family: Open Sans;
+                        line-height: 30px;
+                        font-weight: 600;
+                        text-decoration: none;
+                        color: #3c4858;
+                        padding: 8px 16px;
+                        height: 42px;
+                        border-radius: 10px;
+                        user-select: none;
+                        justify-content: center;
+                        i {
+                            width: 40px;
+                        }
+                        span {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
         &::-webkit-scrollbar {
             width: 6px;
         }
@@ -72,6 +113,116 @@
         &::-webkit-scrollbar-thumb {
             background-color: #a8a9ac;
             border-radius: 20px;
+        }
+    }
+}
+.sidebar-mini {
+    &:hover {
+        width: 256px;
+        .logo {
+            padding: 16px;
+            text-align: left;
+        }
+        .sidebar-nav {
+            overflow: auto;
+            .top-nav {
+                ul {
+                    .sidebar-nav-item {
+                        .nav-item {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            font-size: 14px;
+                            padding: 8px 16px;
+                            span {
+                                display: block;
+                            }
+                            .icon-wrapper {
+                                flex-direction: row;
+                                .icon {
+                                    width: 40px;
+                                }
+                            }
+                            .arrow {
+                                display: block;
+                            }
+                        }
+                        .sub-menu {
+                            display: block;
+                        }
+                    }
+                }
+            }
+            .bottom-nav {
+                ul {
+                    li {
+                        a {
+                            font-size: 14px;
+                            justify-content: flex-start;
+                            span {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.sidebar-expand {
+    width: 256px;
+    padding: 10px;
+    padding-right: 5px;
+    .logo {
+        padding: 16px;
+        text-align: left;
+    }
+    .sidebar-nav {
+        height: calc(100vh - 142px);
+        padding-right: 5px;
+        overflow: auto;
+        .top-nav {
+            ul {
+                .sidebar-nav-item {
+                    .nav-item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 14px;
+                        padding: 8px 16px;
+                        .icon-wrapper {
+                            flex-direction: row;
+                            .icon {
+                                width: 40px;
+                            }
+                        }
+                        span {
+                            display: block;
+                        }
+                        .arrow {
+                            display: block;
+                        }
+                    }
+                    .sub-menu {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .bottom-nav {
+            ul {
+                li {
+                    padding-right: 5px;
+                    a {
+                        font-size: 14px;
+                        padding: 8px 16px;
+                        justify-content: flex-start;
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+            }
         }
     }
 }

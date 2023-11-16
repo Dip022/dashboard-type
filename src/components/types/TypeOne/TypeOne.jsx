@@ -1,16 +1,34 @@
 import { Fragment, useState } from "react";
-import logo from "../../assets/img/logo.png";
-import { navItems } from "../../nav";
 import { Link } from "react-router-dom";
+import { navItems } from "../../../nav";
+import logo from "../../../assets/img/logo.png";
+import mini_logo from "../../../assets/img/mini-logo.png";
 
-const TypeOne = () => {
+const TypeOne = ({
+    setActivePage,
+    sidebarExpand,
+    sidebarMouseOver,
+    setSidebarMouseOver,
+}) => {
     const [isNavOpen, setIsNavOpen] = useState(null);
     const [activeNav, setActiveNav] = useState(0);
-    console.log(isNavOpen);
+    const [menuActive, setMenuActive] = useState(null);
+    console.log(sidebarMouseOver, "==>");
     return (
-        <div className="sidebar">
+        <div
+            className={`sidebar ${
+                sidebarExpand ? "sidebar-expand" : "sidebar-mini"
+            }`}
+            onMouseOver={() => setSidebarMouseOver(true)}
+            onMouseOut={() => setSidebarMouseOver(false)}
+        >
             <a className="logo">
-                <img src={logo} alt="logo" />
+                <img
+                    src={`${
+                        sidebarExpand || sidebarMouseOver ? logo : mini_logo
+                    }`}
+                    alt="logo"
+                />
             </a>
             <div className="sidebar-nav">
                 <div className="top-nav">
@@ -24,20 +42,12 @@ const TypeOne = () => {
                                                 ? "active-sub-menu"
                                                 : ""
                                         }`}
-                                        style={{
-                                            width: "100%",
-                                            height: `${
-                                                isNavOpen === index
-                                                    ? "100%"
-                                                    : "45px"
-                                            }`,
-                                        }}
                                         key={index}
                                     >
                                         {item?.children ? (
                                             <Fragment>
                                                 <a
-                                                    className="d-flex justify-content-between align-items-center nav-item"
+                                                    className="nav-item"
                                                     onClick={() => {
                                                         setIsNavOpen(
                                                             isNavOpen === index
@@ -49,13 +59,17 @@ const TypeOne = () => {
                                                                 ? activeNav
                                                                 : index
                                                         );
+                                                        setMenuActive(null);
+                                                        setActivePage(
+                                                            item.name
+                                                        );
                                                     }}
                                                 >
-                                                    <div className="d-flex align-items-center">
+                                                    <div className="icon-wrapper d-flex align-items-center">
                                                         <i
                                                             className={`${item.icon} icon`}
                                                         ></i>
-                                                        {item.name}
+                                                        <span>{item.name}</span>
                                                     </div>
                                                     <i
                                                         className={`${
@@ -75,10 +89,28 @@ const TypeOne = () => {
                                                                         key={
                                                                             index
                                                                         }
+                                                                        className={`${
+                                                                            isNavOpen &&
+                                                                            menuActive ===
+                                                                                index
+                                                                                ? "sub-menu-active"
+                                                                                : ""
+                                                                        }`}
                                                                     >
                                                                         <Link
                                                                             className="d-flex align-items-center"
                                                                             to=""
+                                                                            onClick={() => {
+                                                                                setMenuActive(
+                                                                                    menuActive ===
+                                                                                        index
+                                                                                        ? isNavOpen
+                                                                                        : index
+                                                                                );
+                                                                                setActivePage(
+                                                                                    menu.name
+                                                                                );
+                                                                            }}
                                                                         >
                                                                             <i
                                                                                 className={
@@ -99,7 +131,7 @@ const TypeOne = () => {
                                         ) : (
                                             <Link
                                                 to=""
-                                                className="d-flex justify-content-between align-items-center nav-item"
+                                                className="nav-item"
                                                 onClick={() => {
                                                     setIsNavOpen(
                                                         isNavOpen === index
@@ -111,13 +143,15 @@ const TypeOne = () => {
                                                             ? activeNav
                                                             : index
                                                     );
+                                                    setMenuActive(null);
+                                                    setActivePage(item.name);
                                                 }}
                                             >
-                                                <div className="d-flex align-items-center">
+                                                <div className="icon-wrapper d-flex align-items-center">
                                                     <i
                                                         className={`${item.icon} icon`}
                                                     ></i>
-                                                    {item.name}
+                                                    <span>{item.name}</span>
                                                 </div>
                                                 <span
                                                     className={`badge  bg-${item?.badge?.variant}`}
@@ -132,7 +166,57 @@ const TypeOne = () => {
                         })}
                     </ul>
                 </div>
-                <div className="bottom-nav">2</div>
+                <div className="bottom-nav">
+                    <ul>
+                        <li>
+                            <Link
+                                to=""
+                                type="button"
+                                className="d-flex align-items-center nav-item"
+                            >
+                                <i className="fa fa-bell"></i>
+                                <span>Notification</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                to=""
+                                type="button"
+                                className="d-flex align-items-center nav-item"
+                            >
+                                <i className="fa-solid fa-envelope"></i>
+                                <span>Message</span>
+                            </Link>
+                        </li>
+                        <li>
+                            <a
+                                type="button"
+                                className="d-flex align-items-center nav-item"
+                            >
+                                <i className="fa-solid fa-file-lines"></i>
+                                <span>Documentation</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                type="button"
+                                className="d-flex align-items-center nav-item"
+                            >
+                                <i className="fa fa-shopping-cart"></i>
+                                <span>Purchase</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                type="button"
+                                className="d-flex align-items-center nav-item"
+                            >
+                                <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     );

@@ -5,18 +5,42 @@
 }
 
 body {
-    padding: 24px;
     background-color: #e8e7ee !important;
     a {
         text-decoration: none;
     }
     ul {
         list-style: none;
+        padding: 0;
+        margin: 0;
     }
     button,
     input {
         outline: none;
         border: 0;
         background-color: transparent;
+    }
+}
+
+// type one scss
+.admin-wrapper-one {
+    position: relative;
+    padding: 24px;
+    .sidebar {
+        float: left;
+    }
+    .right-content {
+        position: relative;
+        float: right;
+        padding: 16px 0 16px 24px;
+    }
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 300px;
+        background-color: #5e72e4;
     }
 }

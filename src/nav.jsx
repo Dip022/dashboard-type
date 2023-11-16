@@ -101,6 +101,10 @@ export const navItems = [
         name: "Widgets",
         path: "/components/widgets",
         icon: "fa fa-calculator",
+        badge: {
+            variant: "info",
+            text: "60+",
+        },
     },
     {
         name: "Charts",
